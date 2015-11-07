@@ -1,0 +1,15 @@
+<div class="title-screen">
+	<h1>Cupcake Creator</h1>
+	<ul>
+		<li>
+			<a href ng-click="titleCtrl.newGame(stageCtrl)">New game</a>
+		</li>
+		<li>
+			<a href ng-click="titleCtrl.continueGame(stageCtrl)">Continue</a>
+		</li>
+		<li>
+			<a href ng-click="titleCtrl.showOptions(stageCtrl)">Options</a>
+		</li>
+	</ul>
+	<small>&copy; {{titleCtrl.copyright | date : "yyyy"}} AndFisher.com</small>
+</div>

@@ -1,0 +1,24 @@
+<form action="#" method="post" class="menu options-menu">
+	<h1>Options menu</h1>
+	<fieldset>
+		
+		<label for="resolution">Resolution</label>
+		<select id="resolution" ng-model="optionsModel.resolution"
+			ng-change="options.changeResolution()" />>
+			<option value="800x600">800 x 600</option>
+			<option value="1920x1080">1920 x 1080</option>
+		</select>
+	</fieldset>
+	<fieldset>
+		<label for="HudOpacity">HUD Opacity</label>
+		<input id="HudOpacity" 
+			value="optionsModel.hudOpacity" 
+			type="range" 
+			min="0" 
+			max="100" 
+			step="10" 
+			ng-model="optionsModel.hudOpacity" 
+			ng-change="options.changeHudOpacity()" /> {{optionsModel.hudOpacity}}
+	</fieldset>
+	<input type="submit" name="Save" />
+</form>

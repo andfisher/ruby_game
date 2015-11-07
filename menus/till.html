@@ -1,0 +1,17 @@
+<nav class="menu till-menu" ng-show="stageCtrl.isMenuShown(2)">
+	<ul>
+		<li>
+			<a href 
+				ng-disabled="!! stageCtrl.ovenContents.length" 
+				ng-class="{disabled : !! stageCtrl.ovenContents.length}">Bake</a>
+		</li>
+		<li>
+			<a href 
+				ng-disabled="! stageCtrl.ovenContents.length" 
+				ng-class="{disabled : ! stageCtrl.ovenContents.length}">Remove</a>
+		</li>
+		<li>
+			<a href ng-click="stageCtrl.cancelMenu()" class="menu-cancel">Cancel</a>
+		</li>
+	</ul>
+</nav>
