@@ -7,6 +7,7 @@
 		return {
 			optionsOn: false,
 			isPaused: true,
+			isPlaying: false,
 			options: {
 				hudOpacity: 100,
 				resolution: '1920x1080'
@@ -33,6 +34,12 @@
 				}
 			} else if(event.key === 'Escape' && this.areOptionsShown()) {
 				this.hideOptions();
+			}
+			
+			// Handle the pause
+			if (gameService.isPlaying && (event.charCode === 80 || event.charCode === 112)) {
+				gameService.isPaused = !gameService.isPaused;
+				this.isPaused = gameService.isPaused;
 			}
 		};
 		
@@ -76,7 +83,7 @@
 	}]);
 
 	
-	app.directive('titleScreen', function() {
+	app.directive('titleScreen', ['gameService', function(gameService) {
 		return {
 			restrict: 'A',
 			templateUrl: 'title-screen.html',
@@ -87,12 +94,14 @@
 				
 				this.newGame = function(stage) {
 
+					gameService.isPlaying = true;
 					stage.setRoom(1);
 					
 				};
 				
 				this.continueGame = function(stage) {
 					
+					gameService.isPlaying = true;
 					stage.setRoom(2);
 					
 				};
@@ -107,7 +116,7 @@
 			},
 			controllerAs: 'titleCtrl'
 		};
-	});
+	}]);
 	
 	
 })();
